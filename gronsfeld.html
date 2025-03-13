@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+        crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+    <title>{{title}}</title>
+    </head>
+    <body>
+    {% extends "head.html" %}
+
+    {% block content %}
+        <div>
+            <h3 style="text-align: center;">Шифр Гронсфельда</h3><br>
+            <p>Шифр Гронсфельда - это полиалфавитный подстановочный шифр, созданный в XVII веке графом Гронсфельдом. Процесс шифрования включает в себя присвоение каждой букве текста числового значения в соответствии с их номером в алфавите. Затем для каждого символа применяется сдвиг в соответствии с числовым значением из ключа.</p>
+            <form method="post">
+            <table class="table">
+                  <tr>
+                    <th style="background-color: transparent;">
+                        <p style="text-align: center;"><b>Шифрование</b></p><br>
+                        <input name="key" type="number" id="key" class="form-control" placeholder="Введите ключ" value={{key}}>
+                            <div class="input-group mb-3">
+                                <input name="mesege" type="text" id="mesege" class="form-control" placeholder="Введите криптоним" aria-describedby="button-addon2" value={{mesege}}>
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Шифровать</button>
+                            </div>
+                        <p>Результат:</p>
+                        <input name="scrypt" type="text" id="scrypt" class="form-control" placeholder="Зашифрованное сообщение" value={{cryt}}>
+                    </th>
+                    <th style="background-color: transparent;">
+                        <p style="text-align: center;"><b>Дешифрование</b></p><br>
+                        <input name="key_des" type="number" id="key_des" class="form-control" placeholder="Введите ключ" value={{key_des}}>
+                            <div class="input-group mb-3">
+                                <input name="cry_mesege" type="text" id="cry_mesege" class="form-control" placeholder="Введите зашифрованное сообщение" aria-describedby="button-addon2" value={{cry_mesege}}>
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Дефровать</button>
+                            </div>
+                            <p>Результат:</p>
+                        <input name="scrypt" type="text" id="scrypt" class="form-control" placeholder="Расшифровка" value={{decrypt}}>
+                    </th>
+                  </tr>
+              </table>
+            </form>
+        </div>
+            
+    {% endblock %}
+
+</body>
+</html>
+    

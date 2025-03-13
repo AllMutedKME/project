@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+        crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+    <title>{{title}}</title>
+    </head>
+    <body>
+    {% extends "head.html" %}
+
+    {% block content %}
+        <div>
+            <h3 style="text-align: center;">Протокол ECDSA</h3><br>
+            <p>ECDSA (Elliptic Curve Digital Signature Algorithm) — алгоритм с открытым ключом, который используется для построения и проверки электронной цифровой подписи при помощи криптографии на эллиптических кривых.</p>
+            <p>Алгоритм популярен в области электронных цифровых подписей из-за сложности задачи, на которой основано вычисление закрытого ключа из открытого. ECDSA принят различными организациями в качестве стандарта.</p>
+            <form method="post">
+            <table class="table">
+                  <tr>
+                    <th style="background-color: transparent; width: 50%;">
+                        <p style="text-align: center;">Шифрование</p><br>
+                        <input name="public_key" type="number" id="public_key" class="form-control" placeholder="Введите свой открытый ключ" value={{public_key}}>
+                        <p>Мы сгенерируем ваш закрытый ключ на основе открытого</p>
+                        <textarea name="private_key" type="text" id="private_key" class="form-control" placeholder="Мы сгинерируем для вас персональный ключ" readonly>{{private_key}}</textarea>
+                        <p></p>
+                        <div class="input-group mb-3"> 
+                            <input name="message" type="number" id="message" class="form-control" placeholder="Введите криптоним (многозначное число)" aria-describedby="button-addon2" value={{message}}>
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Шифровать</button>
+                        </div>
+                        <p>Результат:</p>
+                        <textarea name="scrypt" type="text" id="scrypt" class="form-control" placeholder="Зашифрованное сообщение">{{cryt}}</textarea>
+                    </th>
+                    <th style="background-color: transparent;">
+                        <p style="text-align: center;"><b>Дешифрование</b></p><br>
+                        <p>Введите зашифрованное сообщение в виде списка</p> </br>   
+                        <div class="input-group mb-3">
+                                <textarea name="cry_message" type="text" id="cry_message" class="form-control" placeholder="Введите зашифрованное сообщение" aria-describedby="button-addon2">{{cry_message}}</textarea>
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Дефровать</button>
+                            </div>
+                            <p>Результат:</p>
+                        <input name="scrypt" type="text" id="scrypt" class="form-control" placeholder="Расшифровка" value={{decrypt}}>
+                    </th>
+                  </tr>
+              </table>
+            </form>
+        </div>
+            
+    {% endblock %}
+
+</body>
+</html>
+    
